@@ -2,8 +2,11 @@ import pygame
 import requests
 import re
 import time
+from tqdm import tqdm
 
-DELAY = 1
+
+
+DELAY = 0.2
 
 
 def get_trees():
@@ -14,6 +17,7 @@ def get_trees():
 def main():
     pygame.mixer.init()
     tree_sound = pygame.mixer.Sound('tree.wav')
+    
     last_trees = get_trees()
     print(last_trees)
     loops = 0
@@ -23,8 +27,11 @@ def main():
         print(trees_now)
         loops += 1
         if trees_now > last_trees:
-            pygame.mixer.Sound.play(tree_sound)
-            print('TREE, people planted {} trees within the last {} seconds!'.format(trees_now - last_trees, loops*DELAY))
+            print('TREE, people planted {} trees within the last {} seconds!'.format(trees_now - last_trees, round(loops*DELAY,2)))
+            for tree in tqdm(range(round((trees_now - last_trees) / 10))):
+                time.sleep(0.4)
+                pygame.mixer.Sound.play(tree_sound)
+
             last_trees = trees_now
             loops = 0
 
