@@ -6,7 +6,7 @@ from tqdm import tqdm
 
 
 
-DELAY = 0.2
+DELAY = 0.5
 
 
 def get_trees():
