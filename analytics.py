@@ -39,9 +39,10 @@ def main():
 
                 diff = trees_now - last_trees
                 gained_total += diff
+                goal = 20000000 - trees_now
                 rate = round(diff/(loops*DELAY), 2)
                 rate_total = round(gained_total/(totalLoops*DELAY), 2)
-                preditction = (20000000/rate_total)/60/60/24
+                preditction = (goal/rate_total)/60/60/24
 
                 #data = [now.strftime("%Y-%m-%d %H:%M:%S"),trees_now, (trees_now-last_trees)]    
                 #data = json.dumps({"date": now.strftime("%Y-%m-%d %H:%M:%S"),"sum": trees_now, "diff":(trees_now-last_trees)})
