@@ -27,7 +27,7 @@ def main():
             loops += 1
             totalLoops += 1
 
-            WriteData = open("data/"+now.strftime("%Y.%m.%d")+"-count.txt", "a")   
+            WriteData = open("data/"+now.strftime("%Y.%m.%d")+"-count.csv", "a")   
             WriteData.write(str(trees_now)+","+now.strftime("%Y-%m-%d %H:%M:%S")+"\n")
             WriteData.close()
 
@@ -46,7 +46,7 @@ def main():
                 #data = [now.strftime("%Y-%m-%d %H:%M:%S"),trees_now, (trees_now-last_trees)]    
                 #data = json.dumps({"date": now.strftime("%Y-%m-%d %H:%M:%S"),"sum": trees_now, "diff":(trees_now-last_trees)})
 
-                WriteRate = open("data/"+now.strftime("%Y.%m.%d")+"-rate.txt", "a")   
+                WriteRate = open("data/"+now.strftime("%Y.%m.%d")+"-rate.csv", "a")   
                 WriteRate.write(str(rate)+","+now.strftime("%Y-%m-%d %H:%M:%S")+"\n")
                 WriteRate.close()    
 
